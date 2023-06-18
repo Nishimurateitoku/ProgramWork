@@ -14,9 +14,12 @@ img.logo {
     background-color: #000000;
     margin-top: -4px;
 }
+a:link { color: #ffffff; }
+a:visited { color: #ffaaaa; }
+a:hover { color: #ff3300; }
+a:active { color: #ff0000; }
 .menu a {
     margin: 20px;
-    color: #ffffff;
     text-decoration: none;
 }
 main {
