@@ -3,28 +3,44 @@
     <head>
         <meta charset="UTF-8">
         <title>アカウント登録</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style2.css">
     </head>
     <body>
         
-        <?php/*
+        <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (isset($_POST['id'])||isset($_POST['family_name'])||isset($_POST['last_name'])||isset($_POST['family_name_kana'])||isset($_POST['last_name_kana'])||isset($_POST['mail'])||isset($_POST['password'])||isset($_POST['gender'])||isset($_POST['postal_code'])||isset($_POST['prefecture'])||isset($_POST['address_1'])||isset($_POST['address_2'])||isset($_POST['authority'])||isset($_POST['delete_flag'])||isset($_POST['registered_time'])||isset($_POST['update_time'])) {
+            if (isset($_POST['family_name'])||isset($_POST['last_name'])||isset($_POST['family_name_kana'])||isset($_POST['last_name_kana'])||isset($_POST['mail'])||isset($_POST['password'])||isset($_POST['gender'])||isset($_POST['postal_code'])||isset($_POST['prefecture'])||isset($_POST['address_1'])||isset($_POST['address_2'])||isset($_POST['authority'])) {
                 $isset_status = 'POSTED, isset() True';
             } else {
                 $isset_status = 'POSTED, isset() False';
-                $_POST['name'] = '';
+                $_POST['family_name'] = '';
+                $_POST['last_name'] = '';
+                $_POST['family_name_kana'] = '';
+                $_POST['last_name_kana'] = '';
                 $_POST['mail'] = '';
-                $_POST['age'] = '';
-                $_POST['comments'] = '';
+                $_POST['password'] = '';
+                $_POST['gender'] = '';
+                $_POST['postal_code'] = '';
+                $_POST['prefecture'] = '';
+                $_POST['address_1'] = '';
+                $_POST['address_2'] = '';
+                $_POST['authority'] = '';
             }
         } else {
             $isset_status = 'started without POST';
-            $_POST['name'] = '';
+            $_POST['family_name'] = '';
+            $_POST['last_name'] = '';
+            $_POST['family_name_kana'] = '';
+            $_POST['last_name_kana'] = '';
             $_POST['mail'] = '';
-            $_POST['age'] = '選択してください';
-            $_POST['comments'] = '';
-        }*/
+            $_POST['password'] = '';
+            $_POST['gender'] = '';
+            $_POST['postal_code'] = '';
+            $_POST['prefecture'] = '';
+            $_POST['address_1'] = '';
+            $_POST['address_2'] = '';
+            $_POST['authority'] = '選択してください';
+        }
         ?>
         <header>
             <img src="diblog_logo.jpg" alt="Logo" class="logo">
@@ -40,45 +56,73 @@
         <main>
             <h2>アカウント登録画面</h2>
             <form name="Account" action="regist_confirm.php" method="post">
-                <label>名前（姓）</label>
-                <input type="text" name="family_name" size="35">
-                <br>
-                <label>名前（名）</label>
-                <input type="text" name="last_name" size="35">
-                <br>
-                <label>カナ（姓）</label>
-                <input type="text" name="family_name_kana" size="35">
-                <br>
-                <label>カナ（名）</label>
-                <input type="text" name="lasr_name_kana" size="35">
-                <br>
-                <label>メールアドレス</label>
-                <input type="text" name="mail" size="35">
-                <br>
-                <label>パスワード</label>
-                <input type="text" name="password" size="35">
-                <br>
-                性別
-                <label><input type="radio" name="sex" value="Male">男</label>
-                <label><input type="radio" name="sex" value="Female">女</label>
-                <br>
-                <label>郵便番号</label>
-                <input type="text" name="postal_code" size="15">
-                <br>
-                <label>住所（都道府県）</label>
-                <input type="text" name="prefecture" size="15">
-                <br>
-                <label>住所（市区町村）</label>
-                <input type="text" name="address_1" size="35">
-                <br>
-                <label>住所（番地）</label>
-                <input type="text" name="address_2" size="35">
-                <br>
-                <label>アカウント権限</label>
-                <input type="text" name="authority" size="15">
+                <div>
+                    <label>名前（姓）</label>
+                    <input class="text" type="text" name="family_name" size="35" value="<?php echo $_POST['family_name']; ?>">
+                </div>
                 <br>
                 <div>
-                    <input type="submit" value="確認する">
+                    <label>名前（名）</label>
+                    <input class="text" type="text" name="last_name" size="35" value="<?php echo $_POST['last_name']; ?>">
+                </div>
+                <br>
+                <div>
+                    <label>カナ（姓）</label>
+                    <input class="text" type="text" name="family_name_kana" size="35" value="<?php echo $_POST['family_name_kana']; ?>">
+                </div>
+                <br>
+                <div>
+                    <label>カナ（名）</label>
+                    <input class="text" type="text" name="last_name_kana" size="35" value="<?php echo $_POST['last_name_kana']; ?>">
+                </div>
+                <br>
+                <div>
+                    <label>メールアドレス</label>
+                    <input class="text" type="text" name="mail" size="35" value="<?php echo $_POST['mail']; ?>">
+                </div>
+                <br>
+                <div>
+                    <label>パスワード</label>
+                    <input class="text" type="text" name="password" size="35" value="<?php echo $_POST['password']; ?>">
+                </div>
+                <br>
+                <div>
+                    <label>性別</label>
+                    <label class="gender"><input type="radio" name="gender" value="0">男</label>
+                    <label class="gender"><input type="radio" name="gender" value="1">女</label>
+                </div>
+                <br>
+                <div>
+                    <label>郵便番号</label>
+                    <input class="text" type="text" name="postal_code" size="15" value="<?php echo $_POST['postal_code']; ?>">
+                </div>
+                <br>
+                <div>
+                    <label>住所（都道府県）</label>
+                    <input class="text" type="text" name="prefecture" size="15" value="<?php echo $_POST['prefecture']; ?>">
+                </div>
+                <br>
+                <div>
+                    <label>住所（市区町村）</label>
+                    <input class="text" type="text" name="address_1" size="35" value="<?php echo $_POST['address_1']; ?>">
+                </div>
+                <br>
+                <div>
+                    <label>住所（番地）</label>
+                    <input class="text" type="text" name="address_2" size="35" value="<?php echo $_POST['address_2']; ?>">
+                </div>
+                <br>
+                <div>
+                    <label>アカウント権限</label>
+                    <select name="authority">
+                        <option value="選択してください">選択してください</option>
+                        <option value="0">一般</option>
+                        <option value="1">管理者</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <input class="sub" type="submit" value="確認する">
                 </div>
 
 

@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+img.logo {
+    width: 300px;
+    height: auto;
+    margin: 0px 0px 0px 10px;
+}
+.menu {
+    width: 100%;
+    padding: 10px;
+    background-color: #000000;
+    margin-top: -4px;
+}
+a:link { color: #ffffff; }
+a:visited { color: #ffaaaa; }
+a:hover { color: #ff3300; }
+a:active { color: #ff0000; }
+.menu a {
+    margin: 20px;
+    text-decoration: none;
+}
+footer {
+    margin-top: 30px;
+    clear: both;
+    width: 100%;
+    height: 60px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    line-height: 60px;
+    font-family: 游ゴシック;
+    font-size: 18px;
+}
+main {
+    width: 100%;
+    padding: 0 15%;
+}
+div {
+    clear: both;
+    margin: 5px;
+}
+label {
+    float: left;
+    width: 15%;
+    
+}
+input, select, {
+    float: left;
+}
+.gender {
+    float: left;
+    width: 90px;
+    margin-bottom: 30px;
+}
+.sub {
+    height: 60px;
+    width: 120px;
+    clear: both;
+    text-align: center;
+    margin-left: 25%;
+} 
+.text {
+    border: solid 3px #000000;
+}
+p {
+    float: left;
+    width: 15%;
+}
+span {
+    float: left;
+    margin: 16px;
+}
+input.back, input.go{
+    height: 45px;
+    width: 80px;
+    text-align: center;
+    margin: 30px;
+}
+form {
+    float: left;
+}
+
+
