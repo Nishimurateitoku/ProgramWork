@@ -1,18 +1,18 @@
 <?php 
+date_default_timezone_set('Asia/Tokyo');
+$formated_DATETIME = date('Y-m-d H:i:s');
 mb_internal_encoding("utf8");
 $pdo = new PDO("mysql:dbname=lesson03; host=localhost;", "root", "");
-$pdo->exec("insert into account(id.family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,postal_code,prefecture,address_1,address_2,authority,delet_flag,registered_time,update_time)
-values('".$_POST['family_name']."','".$_POST['last_name']."','".$_POST['family_name_kana']."','".$_POST['last_name_kana']."','".$_POST['mail']."','".$_POST['password']."','".$_POST['gender']."','".$_POST['postal_code']."','".$_POST['prefecture']."','".$_POST['address_1']."','".$_POST['address_2']."','".$_POST['authority']."');");
+$pdo->exec("insert into account(family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,postal_code,prefecture,address_1,address_2,authority,delete_flag,registered_time,update_time)
+values('".$_POST['family_name']."','".$_POST['last_name']."','".$_POST['family_name_kana']."','".$_POST['last_name_kana']."','".$_POST['mail']."','".$_POST['password']."','".$_POST['gender']."','".$_POST['postal_code']."','".$_POST['prefecture']."','".$_POST['address_1']."','".$_POST['address_2']."','".$_POST['authority']."','0','".$formated_DATETIME."','".$formated_DATETIME."');");
 ?>
 <!DOCTYPE html>
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
         <title>アカウント登録完了画面</title>
-        <link rel="stylesheet" type="text/css" href="style2.css">
-        <script>
-            function 
-        </script>
+        <link rel="stylesheet" type="text/css" href="style3.css">
+        
     </head>
     <body>
         <header>
@@ -29,7 +29,7 @@ values('".$_POST['family_name']."','".$_POST['last_name']."','".$_POST['family_n
         <main>
             <h2>アカウント登録完了画面</h2>
             <div class="confirm">
-                <p>
+                <p id="kanryou">
                     登録完了しました
                 </p>
                 <input type="button" value="TOPページへ戻る"　onClick="location.href='index.html'">

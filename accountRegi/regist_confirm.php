@@ -33,7 +33,7 @@
             <div><p>住所（番地）</p><span><?php echo $_POST['address_2']; ?></span></div>
             <div><p>アカウント権限</p><span><?php echo $_POST['authority']; ?></span></div>
             
-            <div>
+            <div class="button">
                 <form action="regist.php" method="post">
                     <input class="back" type="submit" class="button1" value="前に戻る">
                     <input type="hidden" value="<?php echo $_POST['family_name']; ?>" name="family_name">
@@ -65,6 +65,7 @@
                     <input type="hidden" value="<?php echo $_POST['address_1']; ?>" name="address_1">
                     <input type="hidden" value="<?php echo $_POST['address_2']; ?>" name="address_2">
                     <input type="hidden" value="<?php echo $_POST['authority']; ?>" name="authority">
+                    
                 </form>
             </div>
             

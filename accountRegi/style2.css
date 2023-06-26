@@ -35,16 +35,16 @@ footer {
     font-size: 18px;
 }
 main {
-    width: 100%;
-    padding: 0 15%;
+    margin: 0 auto;
+    padding: 0 30%;
 }
 div {
     clear: both;
-    margin: 5px;
+    
 }
 label {
     float: left;
-    width: 15%;
+    width: 180px;
     
 }
 input, select, {
@@ -62,12 +62,12 @@ input, select, {
     text-align: center;
     margin-left: 25%;
 } 
-.text {
+.text, select {
     border: solid 3px #000000;
 }
 p {
     float: left;
-    width: 15%;
+    width: 200px;
 }
 span {
     float: left;
@@ -80,7 +80,29 @@ input.back, input.go{
     margin: 30px;
 }
 form {
+    width: auto;
     float: left;
 }
-
+.error-message {
+    clear: both;
+    font-size: 12px;
+    color: #ff7676;
+    display: none;
+    margin-left: 180px;
+}
+input:invalid + .error-message {
+    display: block;
+}
+.error {
+    width: 100%;
+    padding: 0;
+    display: inline-block;
+    font: size: 90%;
+    color: red;
+    box-sizing: border-box;
+}
+input[type="checkbox"]:not(input[type="checkbox"]:first-of-type),
+input[type="radio"]:not(input[type="radio"]:first-of-type){
+    margin-left: 20px;
+}
 
