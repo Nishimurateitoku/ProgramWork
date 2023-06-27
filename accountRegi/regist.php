@@ -55,15 +55,15 @@
         </header>
         <main>
             <h2>アカウント登録画面</h2>
-            <form name="Account" class="validationForm" action="regist_confirm.php" method="post">
+            <form name="myForm" class="validationForm" action="regist_confirm.php" method="post" novalidate>
                 <div>
                     <label for="family_name">名前（姓）</label>
-                    <input class="required pattern" type="text" name="family_name" size="35" id="family_name" value="<?php echo $_POST['family_name']; ?>" ,maxlength="10" data-pattern="name1" data-error-pattern="ひらがなもしくは漢字で入力してください"　data-error-required="※名前（姓）が未入力です">
+                    <input class="required pattern" type="text" id="family_name" name="family_name" size="35" id="family_name" value="<?php echo $_POST['family_name']; ?>" ,maxlength="10" data-pattern="name1" data-error-pattern="ひらがなもしくは漢字で入力してください"　data-error-required="※名前（姓）が未入力です">
                 </div>
                 <br>
                 <div>
                     <label for="last_name">名前（名）</label>
-                    <input class="required pattern" type="text" name="last_name" size="35" id="last_name" value="<?php echo $_POST['last_name']; ?>" maxlength="10" data-pattern="name1" data-error-pattern="ひらがなもしくは漢字で入力してください"　data-error-required="※名前（名）が未入力です">
+                    <input class="required pattern" type="text" id="family_name" name="last_name" size="35" id="last_name" value="<?php echo $_POST['last_name']; ?>" maxlength="10" data-pattern="name1" data-error-pattern="ひらがなもしくは漢字で入力してください"　data-error-required="※名前（名）が未入力です">
                 </div>
                 <br>
                 <div>
@@ -73,10 +73,7 @@
                 <br>
                 <div>
                     <label for="last_name_kana">カナ（名）</label>
-                    <input class="required pattern" type="text" name="last_name_kana" size="35" id="last_name_kana" value="<?php echo $_POST['last_name_kana']; ?>" maxlength="10" data-pattern="name2"　data-error-pattern="全角カナで入力してください">
-                    <div class="error-message">
-                        ※カナ（名）が未入力です
-                    </div>
+                    <input class="required pattern" type="text" name="last_name_kana" size="35" id="last_name_kana" value="<?php echo $_POST['last_name_kana']; ?>" maxlength="10" data-pattern="name2"　data-error-pattern="全角カナで入力してください" data-error-required="※カナ（名）が未入力です">
                 </div>
                 <br>
                 <div>
@@ -91,8 +88,8 @@
                 <br>
                 <div>
                     <label>性別</label>
-                    <label class="gender"><input type="radio" name="gender" value="0"　class="required" data-error-required="男女どちらか選択してください">男</label>
-                    <label class="gender"><input type="radio" name="gender" value="1">女</label>
+                    <label class="required"><input type="radio" name="gender" value="0"　class="required" data-error-required="男女どちらか選択してください">男</label>
+                    <label class="required"><input type="radio" name="gender" value="1">女</label>
                    
                 </div>
                 <br>
@@ -168,7 +165,7 @@
                 <br>
                 <div>
                     <label>住所（番地）</label>
-                    <input class="text" type="text" name="address_2" size="35" value="<?php echo $_POST['address_2']; ?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー\u30A1-\u30F6\uFF10-\uFF19|　| ]* + [0-9-]+$"　required>
+                    <input class="validation" type="text" name="address_2" size="35" value="<?php echo $_POST['address_2']; ?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー\u30A1-\u30F6\uFF10-\uFF19|　| ]* + [0-9-]+$"　required>
                     <div class="error-message">
                         ※住所（番地）が未入力です
                     </div>
@@ -183,7 +180,7 @@
                 </div>
                 <br>
                 <div>
-                    <input class="sub" type="submit" value="確認する" onClick="return Echeck;">
+                    <input id="sub" class="sub" type="submit" value="確認する">
                 </div>
 
 

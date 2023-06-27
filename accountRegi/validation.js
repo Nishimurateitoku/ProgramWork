@@ -1,10 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     const validationForm = document.querySelector('.validationForm');
     if(validationForm) {
         const errorClassName = 'error';
         const requiredElems = document.querySelectorAll('.required');
         const patternElems = document.querySelectorAll('.pattern');
-        
         const maxlengthElems = document.querySelectorAll('.maxlength');
                     
         const createError = (elem, errorMessage) => {
@@ -22,10 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         
             requiredElems.forEach( (elem) => {
                 const dataError = elem.getAttribute('data-error-required');
+                console.log(dataError);
                 if(elem.tagName === 'INPUT' && elem.getAttribute('type') === 'radio') {
                     const checkedRadio = elem.parentElement.querySelector('input[type="radio"]:checked');
                     if(checkedRadio === null) {
-                        const errorMessage = dataError ? dataError : 'いずれか1つを選択してください';
+                        const errorMessage = dataError ? dataError : '男女どちらかを選択してください';
                         createError(elem, errorMessage);
                         e.preventDefault();
                     }
@@ -37,13 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         createError(elem, errorMessage);
                         } else {
                             const errorMessage = dataError ? dataError : '入力は必須です';
+                            
                             createError(elem, errorMessage);
                         }
                         e.preventDefault();
                     }
                 }
             });
-            pattarnElems.forEach( (elem) => {
+            patternElems.forEach( (elem) => {
                 let dataPattern = elem.getAttribute('data-pattern');
                 let pattern;
                 const dataError = elem.getAttribute('data-error-pattern');
@@ -51,24 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(dataPattern) {
                     switch(dataPattern) {
                         case 'name1' :
-                            pattern = /[\u4E00-\u9FFF\u3040-\u309Fー]*;
+                            pattern = "[\u4E00-\u9FFF\u3040-\u309Fー]*";
                             errorMessage = dataError ? dataError : '漢字もしくはひらがなで入力してください';
                             break;
                         case 'name2' :
-                            pattern = /[\u30A1-\u30F6]*;
+                            pattern = "[\u30A1-\u30F6]*";
                             errorMessage = dataError ? dataError : 'カタカナで入力してください';
                             break;
                         case 'email' :
                             pattern = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ui;
                             errorMessage = dataError ? dataError : 'メールアドレスの形式が正しくありません';
-                            break;
-                        case 'password' :
-                            pattern = /^[0-9A-Za-z]+$;
-                            errorMessage = dataError ? dataError : 'パスワードは半角英数字で入力してください'；
-                            break;
-                        case 'postal_code' :
-                        pattern = /\d{3}-?\d{4};
-                            errorMessage = dataError ? dataError : '半角数字7文字で入力してください';
                             break;
                         default :
                             pattern = new RegExp(dataPattern);
@@ -95,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             });
-            const errorElem = validationForm.querySelectot('.' + errorClassName);
+            const errorElem = validationForm.querySelector('.' + errorClassName);
             if(errorElem) {
                 const errorElemOffsetTop = errorElem.offsetTop;
                 window.scrollTo({
@@ -110,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if(dataMaxlength && !isNaN(dataMaxlength)) {
                 const countElem = document.createElement('p');
                 countElem.classList.add('countSpanWrapper');
-                countElem.innerHTML = '<span class="countSpan">0</span>' + parseInt(dataMaxlength);
+                countElem.innerHTML = '<span class="countSpan">0</span>/' + parseInt(dataMaxlength);
                 elem.parentNode.appendChild(countElem);
             }
             elem.addEventListener('input', (e) => {
@@ -121,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if(count > dataMaxlength) {
                         countSpan.style.setProperty('color', 'red');
                         countSpan.classList.add('overMaxCount');
-                    } eles {
+                    } else {
                         countSpan.style.removeProperty('color');
                         countSpan.classList.remove('overMaxCount');
                     }
