@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if(validationForm) {
         const errorClassName = 'error';
         const requiredElems = document.querySelectorAll('.required');
+        console.log(requiredElems);
         const patternElems = document.querySelectorAll('.pattern');
         const maxlengthElems = document.querySelectorAll('.maxlength');
                     
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         
             requiredElems.forEach( (elem) => {
                 const dataError = elem.getAttribute('data-error-required');
-                console.log(dataError);
+                
                 if(elem.tagName === 'INPUT' && elem.getAttribute('type') === 'radio') {
                     const checkedRadio = elem.parentElement.querySelector('input[type="radio"]:checked');
                     if(checkedRadio === null) {
@@ -32,12 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                     const elemValue = elem.value.trim();
                     if(elemValue.length === 0) {
+                        
                         if(elem.tagName === 'SELECT') {
                             const errorMessage = dataError ? dataError : '選択してください';
                         createError(elem, errorMessage);
                         } else {
                             const errorMessage = dataError ? dataError : '入力は必須です';
-                            
                             createError(elem, errorMessage);
                         }
                         e.preventDefault();

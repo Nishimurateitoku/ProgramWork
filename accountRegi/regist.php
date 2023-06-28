@@ -63,7 +63,7 @@
                 <br>
                 <div>
                     <label for="last_name">名前（名）</label>
-                    <input class="required pattern" type="text" id="family_name" name="last_name" size="35" id="last_name" value="<?php echo $_POST['last_name']; ?>" maxlength="10" data-pattern="name1" data-error-pattern="ひらがなもしくは漢字で入力してください"　data-error-required="※名前（名）が未入力です">
+                    <input class="required pattern" type="text" id="last_name" name="last_name" size="35" id="last_name" value="<?php echo $_POST['last_name']; ?>" maxlength="10" data-pattern="name1" data-error-pattern="ひらがなもしくは漢字で入力してください"　data-error-required="※名前（名）が未入力です">
                 </div>
                 <br>
                 <div>
@@ -88,14 +88,14 @@
                 <br>
                 <div>
                     <label>性別</label>
-                    <label class="required"><input type="radio" name="gender" value="0"　class="required" data-error-required="男女どちらか選択してください">男</label>
-                    <label class="required"><input type="radio" name="gender" value="1">女</label>
+                    <label class="gender"><input type="radio" id="man" name="gender" value="0"　class="required" data-error-required="男女どちらか選択してください">男</label>
+                    <label class="gender"><input type="radio" id="woman" name="gender" value="1">女</label>
                    
                 </div>
                 <br>
                 <div>
                     <label>郵便番号</label>
-                    <input class="required pattern" type="text" name="postal_code" size="15" value="<?php echo $_POST['postal_code']; ?>" maxlength="7" data-pattern="postal_code" data-error-pattern="半角数字7文字で入力してください" data-error-required="郵便番号を入力してください">
+                    <input class="required pattern" id="postal_code" type="text" name="postal_code" size="15" value="<?php echo $_POST['postal_code']; ?>" maxlength="7" data-pattern="postal_code" data-error-pattern="半角数字7文字で入力してください" data-error-required="郵便番号を入力してください">
                 </div>
                 <br>
                 <div>
@@ -157,23 +157,18 @@
                 <br>
                 <div>
                     <label>住所（市区町村）</label>
-                    <input class="text" type="text" name="address_1" size="35" value="<?php echo $_POST['address_1']; ?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー\u30A1-\u30F6\uFF10-\uFF19|　| ]* + [0-9-]+$"　required>
-                    <div class="error-message">
-                        ※住所（市区町村）が未入力です
-                    </div>
+                    <input class="required pattern" id="address_1" type="text" name="address_1" size="35" value="<?php echo $_POST['address_1']; ?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー\u30A1-\u30F6\uFF10-\uFF19|　| ]* + [0-9-]+$"　data-error-required="※住所（市区町村）が未入力です">
                 </div>
                 <br>
                 <div>
                     <label>住所（番地）</label>
-                    <input class="validation" type="text" name="address_2" size="35" value="<?php echo $_POST['address_2']; ?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー\u30A1-\u30F6\uFF10-\uFF19|　| ]* + [0-9-]+$"　required>
-                    <div class="error-message">
-                        ※住所（番地）が未入力です
-                    </div>
+                    <input class="required pattern" id="address_2" type="text" name="address_2" size="35" value="<?php echo $_POST['address_2']; ?>" pattern="[\u4E00-\u9FFF\u3040-\u309Fー\u30A1-\u30F6\uFF10-\uFF19|　| ]* + [0-9-]+$"　data-error-required="※住所（番地）が未入力です">
+                    
                 </div>
                 <br>
                 <div>
                     <label>アカウント権限</label>
-                    <select name="authority">
+                    <select name="authority" id="authority">
                         <option value="0" selected>一般</option>
                         <option value="1">管理者</option>
                     </select>

@@ -45,15 +45,19 @@ div {
 label {
     float: left;
     width: 180px;
-    
+}
+label.gender {
+    width: 100px;
+    border: none;
+    margin-bottom: 25px;
 }
 input, select, {
     float: left;
 }
 .gender {
     float: left;
-    width: 90px;
-    margin-bottom: 30px;
+    width: 50px;
+    
 }
 .sub {
     height: 60px;
@@ -62,7 +66,7 @@ input, select, {
     text-align: center;
     margin-left: 25%;
 } 
-.text, select {
+.required, select {
     border: solid 3px #000000;
 }
 p {
