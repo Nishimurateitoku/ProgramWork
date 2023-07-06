@@ -2,9 +2,19 @@
 date_default_timezone_set('Asia/Tokyo');
 $formated_DATETIME = date('Y-m-d H:i:s');
 mb_internal_encoding("utf8");
-$pdo = new PDO("mysql:dbname=lesson03; host=localhost;", "root", "");
-$pdo->exec("insert into account(family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,postal_code,prefecture,address_1,address_2,authority,delete_flag,registered_time,update_time)
-values('".$_POST['family_name']."','".$_POST['last_name']."','".$_POST['family_name_kana']."','".$_POST['last_name_kana']."','".$_POST['mail']."','".$_POST['password']."','".$_POST['gender']."','".$_POST['postal_code']."','".$_POST['prefecture']."','".$_POST['address_1']."','".$_POST['address_2']."','".$_POST['authority']."','0','".$formated_DATETIME."','".$formated_DATETIME."');");
+$origin_pass = $_POST['password'];
+$hashed_pass = password_hash($origin_pass, PASSWORD_DEFAULT);
+try {
+    $pdo = new PDO("mysql:dbname=lesson03; host=localhost;", "root", "");
+} catch (Exception $ex) {
+    echo '<span style="color:#ff0000;">エラーが発生したためアカウント登録できません</span>';
+    return false;
+}
+
+$pdo->exec("insert into account01(family_name,last_name,family_name_kana,last_name_kana,mail,password,gender,postal_code,prefecture,address_1,address_2,authority,delete_flag,registered_time,update_time)
+values('".$_POST['family_name']."','".$_POST['last_name']."','".$_POST['family_name_kana']."','".$_POST['last_name_kana']."','".$_POST['mail']."','".$hashed_pass."','".$_POST['gender']."','".$_POST['postal_code']."','".$_POST['prefecture']."','".$_POST['address_1']."','".$_POST['address_2']."','".$_POST['authority']."','0','".$formated_DATETIME."','".$formated_DATETIME."');");
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -32,7 +42,7 @@ values('".$_POST['family_name']."','".$_POST['last_name']."','".$_POST['family_n
                 <p id="kanryou">
                     登録完了しました
                 </p>
-                <input type="button" value="TOPページへ戻る"　onClick="location.href='index.html'">
+                <input type="button" onclick="location.href='index.html'" value="TOPページへ戻る"　>
             </div>
         </main>
         <footer>

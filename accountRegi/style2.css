@@ -40,16 +40,16 @@ main {
 }
 div {
     clear: both;
-    
+    margin-bottom: 16px;
 }
-label {
+label, p {
     float: left;
     width: 180px;
+    
 }
 label.gender {
     width: 100px;
     border: none;
-    margin-bottom: 25px;
 }
 input, select, {
     float: left;
@@ -69,9 +69,17 @@ input, select, {
 .required, select {
     border: solid 3px #000000;
 }
-p {
+.seibetu {
+    margin-bottom: 32px;
+}
+#man, #woman {
     float: left;
-    width: 200px;
+    margin: 2px 2px 2px 2px;
+}
+p {
+    margin-top: 0;
+    float: left;
+    width: 180px;
 }
 span {
     float: left;
@@ -87,9 +95,14 @@ form {
     width: auto;
     float: left;
 }
-
+label span.error {
+    margin: 0;
+    width: 250px;
+}
 .error {
     width: 100%;
+    margin-top: 0;
+    margin-left: 180px;
     padding: 0;
     display: inline-block;
     font: size: 90%;
@@ -99,5 +112,6 @@ form {
 input[type="checkbox"]:not(input[type="checkbox"]:first-of-type),
 input[type="radio"]:not(input[type="radio"]:first-of-type){
     margin-left: 10px;
+    margin-top: 0;
 }
 

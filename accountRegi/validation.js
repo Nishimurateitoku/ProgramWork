@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         
             requiredElems.forEach( (elem) => {
                 const dataError = elem.getAttribute('data-error-required');
-                
+                console.log(dataError);
                 if(elem.tagName === 'INPUT' && elem.getAttribute('type') === 'radio') {
                     const checkedRadio = elem.parentElement.querySelector('input[type="radio"]:checked');
                     if(checkedRadio === null) {
@@ -47,22 +47,36 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             patternElems.forEach( (elem) => {
                 let dataPattern = elem.getAttribute('data-pattern');
+                console.log(dataPattern);
                 let pattern;
                 const dataError = elem.getAttribute('data-error-pattern');
                 let errorMessage = '';
                 if(dataPattern) {
                     switch(dataPattern) {
                         case 'name1' :
-                            pattern = "[\u4E00-\u9FFF\u3040-\u309Fー]*";
+                            pattern = /[\u4E00-\u9FFF\u3040-\u309Fー]/;
                             errorMessage = dataError ? dataError : '漢字もしくはひらがなで入力してください';
                             break;
                         case 'name2' :
-                            pattern = "[\u30A1-\u30F6]*";
-                            errorMessage = dataError ? dataError : 'カタカナで入力してください';
+                            pattern = /[\u30A1-\u30F6]/;
+                            errorMessage = dataError ? dataError : '全角カナで入力してください';
                             break;
                         case 'email' :
                             pattern = /^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ui;
                             errorMessage = dataError ? dataError : 'メールアドレスの形式が正しくありません';
+                            break;
+                        case 'password' :
+                            pattern = /^[0-9A-Za-z]+$/;
+                            errorMessage = dataError ? dataError : '半角英数字で入力してください';
+                            break;
+                        case 'postal_code' :
+                            pattern = /[0-9]/;
+                            errorMessage = dataError ? dataError : '半角数字で入力してください';
+                            break; 
+                        case 'address' :
+                            pattern = /[^!"#\$%&'\(\)=~\^\|\\`@\{\}\[\]\+;\*:<,>\.\?_\/！”＃＄％＆’（）＝～＾｜￥‘＠｛「＋；＊：｝」＜、＞。？・＿￥]/;
+                                ///[\u4E00-\u9FFF\u3040-\u309Fー\u30A1-\u30F6\uFF10-\uFF19\0-9-|　| ]+$/;
+                            errorMessage = dataError ? dataError : 'ひらがな、漢字、数字、カタカナ、ハイフン、スペースで入力してください';
                             break;
                         default :
                             pattern = new RegExp(dataPattern);
