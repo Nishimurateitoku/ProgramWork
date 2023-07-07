@@ -41,6 +41,7 @@ main {
 div {
     clear: both;
     margin-bottom: 16px;
+    margin-top: 20px;
 }
 label, p {
     float: left;
@@ -70,7 +71,7 @@ input, select, {
     border: solid 3px #000000;
 }
 .seibetu {
-    margin-bottom: 32px;
+    margin-bottom: 52px;
 }
 #man, #woman {
     float: left;
@@ -102,6 +103,7 @@ label span.error {
 .error {
     width: 100%;
     margin-top: 0;
+    margin-bottom: 0;
     margin-left: 180px;
     padding: 0;
     display: inline-block;

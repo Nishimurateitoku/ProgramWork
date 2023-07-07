@@ -58,32 +58,32 @@
             <form name="myForm" class="validationForm" action="regist_confirm.php" method="post" novalidate>
                 <div>
                     <label for="family_name">名前（姓）</label>
-                    <input class="required pattern" type="text" id="family_name" name="family_name" size="35" value="<?php echo $_POST['family_name']; ?>" ,maxlength="10" data-pattern="name1" data-error-required="※名前（姓）が未入力です" data-error-pattern="ひらがなもしくは漢字で入力してください">
+                    <input class="required pattern maxlength" type="text" id="family_name" name="family_name" size="35" value="<?php echo $_POST['family_name']; ?>" data-maxlength="10" data-pattern="name1" data-error-required="※名前（姓）が未入力です" data-error-pattern="ひらがなもしくは漢字で入力してください">
                 </div>
                 <br>
                 <div>
                     <label for="last_name">名前（名）</label>
-                    <input class="required pattern" type="text" id="last_name" name="last_name" size="35" value="<?php echo $_POST['last_name']; ?>" maxlength="10" data-pattern="name1"  data-error-required="※名前（名）が未入力です" data-error-pattern="ひらがなもしくは漢字で入力してください">
+                    <input class="required pattern maxlength" type="text" id="last_name" name="last_name" size="35" value="<?php echo $_POST['last_name']; ?>" data-maxlength="10" data-pattern="name1"  data-error-required="※名前（名）が未入力です" data-error-pattern="ひらがなもしくは漢字で入力してください">
                 </div>
                 <br>
                 <div>
                     <label for="family_name_kana">カナ（姓）</label>
-                    <input class="required pattern" type="text" name="family_name_kana" size="35" id="family_name_kana" value="<?php echo $_POST['family_name_kana']; ?>" maxlength="10" data-pattern="name2" data-error-required="※カナ（姓）が未入力です" data-error-pattern="全角カナで入力してください">
+                    <input class="required pattern maxlength" type="text" name="family_name_kana" size="35" id="family_name_kana" value="<?php echo $_POST['family_name_kana']; ?>" data-maxlength="10" data-pattern="name2" data-error-required="※カナ（姓）が未入力です" data-error-pattern="全角カナで入力してください">
                 </div>
                 <br>
                 <div>
                     <label for="last_name_kana">カナ（名）</label>
-                    <input class="required pattern" type="text" name="last_name_kana" size="35" id="last_name_kana" value="<?php echo $_POST['last_name_kana']; ?>" maxlength="10" data-pattern="name2" data-error-required="※カナ（名）が未入力です"　data-error-pattern="全角カナで入力してください">
+                    <input class="required pattern maxlength" type="text" name="last_name_kana" size="35" id="last_name_kana" value="<?php echo $_POST['last_name_kana']; ?>" data-maxlength="10" data-pattern="name2" data-error-required="※カナ（名）が未入力です"　data-error-pattern="全角カナで入力してください">
                 </div>
                 <br>
                 <div>
                     <label>メールアドレス</label>
-                    <input class="required pattern" type="text" name="mail" id="mail" size="35" value="<?php echo $_POST['mail']; ?>" maxlength="100" data-pattern="email" data-error-pattern="半角英数字と@やドメインが必要です" data-error-required="※メールアドレスが未入力です">
+                    <input class="required pattern maxlength" type="text" name="mail" id="mail" size="35" value="<?php echo $_POST['mail']; ?>" data-maxlength="100" data-pattern="email" data-error-pattern="半角英数字と@やドメインが必要です" data-error-required="※メールアドレスが未入力です">
                 </div>
                 <br>
                 <div>
                     <label>パスワード</label>
-                    <input class="required pattern" type="text" name="password" id="password" size="35" value="<?php echo $_POST['password']; ?>" maxlength="10" data-pattern="password"　data-error-pattern="半角英数字で入力してください" data-error-required="※パスワードが未入力です">
+                    <input class="required pattern maxlength" type="text" name="password" id="password" size="35" value="<?php echo $_POST['password']; ?>" data-maxlength="10" data-pattern="password"　data-error-pattern="半角英数字で入力してください" data-error-required="※パスワードが未入力です">
                 </div>
                 <br>
                 <div class="seibetu">
@@ -96,7 +96,7 @@
                 <br>
                 <div>
                     <label>郵便番号</label>
-                    <input class="required pattern" id="postal_code" type="text" name="postal_code" size="15" value="<?php echo $_POST['postal_code']; ?>" maxlength="7" data-pattern="postal_code" data-error-pattern="半角数字7文字で入力してください" data-error-required="※郵便番号を入力してください">
+                    <input class="required pattern maxlength" id="postal_code" type="text" name="postal_code" size="15" value="<?php echo $_POST['postal_code']; ?>" data-maxlength="7" data-pattern="postal_code" data-error-pattern="半角数字7文字で入力してください" data-error-required="※郵便番号を入力してください">
                 </div>
                 <br>
                 <div>
@@ -156,12 +156,12 @@
                 <br>
                 <div>
                     <label>住所（市区町村）</label>
-                    <input class="required pattern" id="address_1" type="text" name="address_1" size="35" value="<?php echo $_POST['address_1']; ?>" data-error-required="※住所（市区町村）が未入力です" data-pattern="address">
+                    <input class="required pattern" id="address_1" type="text" name="address_1" size="35" value="<?php echo $_POST['address_1']; ?>" data-maxlength="10" data-error-required="※住所（市区町村）が未入力です" data-pattern="address">
                 </div>
                 <br>
                 <div>
                     <label>住所（番地）</label>
-                    <input class="required pattern" id="address_2" type="text" name="address_2" size="35" value="<?php echo $_POST['address_2']; ?>" data-error-required="※住所（番地）が未入力です" data-pattern="address"　>
+                    <input class="required pattern" id="address_2" type="text" name="address_2" size="35" value="<?php echo $_POST['address_2']; ?>" data-maxlength="100" data-error-required="※住所（番地）が未入力です" data-pattern="address"　>
                     
                 </div>
                 <br>

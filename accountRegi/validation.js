@@ -74,8 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             errorMessage = dataError ? dataError : '半角数字で入力してください';
                             break; 
                         case 'address' :
-                            pattern = /[^!"#\$%&'\(\)=~\^\|\\`@\{\}\[\]\+;\*:<,>\.\?_\/！”＃＄％＆’（）＝～＾｜￥‘＠｛「＋；＊：｝」＜、＞。？・＿￥]/;
-                                ///[\u4E00-\u9FFF\u3040-\u309Fー\u30A1-\u30F6\uFF10-\uFF19\0-9-|　| ]+$/;
+                            pattern = /[\u4E00-\u9FFF\u3040-\u309Fー\u30A1-\u30F6\uFF10-\uFF19\0-9\u002D\u3000\u0020]+$/;
+                                //[^!"#\$%&'\(\)=~\^\|\\`@\{\}\[\]\+;\*:<,>\.\?_\/！”＃＄％＆’（）＝～＾｜￥‘＠｛「＋；＊：｝」＜、＞。？・＿￥]+/;
+                                ///[\u4E00-\u9FFF\u3040-\u309Fー\u30A1-\u30F6\uFF10-\uFF19\0-9\-\u3000| ]+$/;
                             errorMessage = dataError ? dataError : 'ひらがな、漢字、数字、カタカナ、ハイフン、スペースで入力してください';
                             break;
                         default :
