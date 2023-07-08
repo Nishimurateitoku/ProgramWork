@@ -156,12 +156,12 @@
                 <br>
                 <div>
                     <label>住所（市区町村）</label>
-                    <input class="required pattern" id="address_1" type="text" name="address_1" size="35" value="<?php echo $_POST['address_1']; ?>" data-maxlength="10" data-error-required="※住所（市区町村）が未入力です" data-pattern="address">
+                    <input class="required pattern maxlength" id="address_1" type="text" name="address_1" size="35" value="<?php echo $_POST['address_1']; ?>" data-maxlength="10" data-error-required="※住所（市区町村）が未入力です" data-pattern="address" data-error-pattern="ひらがな、漢字、数字、カタカナ、ハイフン、スペースで入力してください">
                 </div>
                 <br>
                 <div>
                     <label>住所（番地）</label>
-                    <input class="required pattern" id="address_2" type="text" name="address_2" size="35" value="<?php echo $_POST['address_2']; ?>" data-maxlength="100" data-error-required="※住所（番地）が未入力です" data-pattern="address"　>
+                    <input class="required pattern maxlength" id="address_2" type="text" name="address_2" size="35" value="<?php echo $_POST['address_2']; ?>" data-maxlength="100" data-error-required="※住所（番地）が未入力です" data-pattern="address" data-error-pattern="ひらがな、漢字、数字、カタカナ、ハイフン、スペースで入力してください">
                     
                 </div>
                 <br>
