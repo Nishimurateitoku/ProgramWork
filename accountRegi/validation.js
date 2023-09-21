@@ -54,11 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(dataPattern) {
                     switch(dataPattern) {
                         case 'name1' :
-                            pattern = /[\u4E00-\u9FFF|\u3040-\u309Fー]/;
+                            pattern = /^[\u4E00-\u9FFF|\u3040-\u309Fー]+$/;
                             errorMessage = dataError ? dataError : '漢字もしくはひらがなで入力してください';
                             break;
                         case 'name2' :
-                            pattern = /[\u30A1-\u30F6]/;
+                            pattern = /^[\u30A1-\u30F6]+$/;
                             errorMessage = dataError ? dataError : '全角カナで入力してください';
                             break;
                         case 'email' :
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             errorMessage = dataError ? dataError : '半角英数字で入力してください';
                             break;
                         case 'postal_code' :
-                            pattern = /[0-9]/;
+                            pattern = /^[0-9]+$/;
                             errorMessage = dataError ? dataError : '半角数字で入力してください';
                             break; 
                         case 'address' :

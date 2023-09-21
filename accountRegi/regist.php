@@ -88,7 +88,7 @@
                 <br>
                 <div class="seibetu">
                     <label>性別</label>
-                    <input class="required" type="radio" id="man" name="gender" value="0" data-error-required="※男女どちらか選択してください" <?php if($_POST['gender'] == "0") echo 'checked' ?>>
+                    <input class="required" type="radio" id="man" name="gender" value="0" data-error-required="※男女どちらか選択してください" <?php if($_POST['gender'] == "0") echo 'checked' ?> checked>
                     <label for="man" class="gender">男</label>
                     <input type="radio" id="woman" name="gender" value="1" <?php if($_POST['gender'] == "1") echo 'checked' ?>>
                     <label for="woman" class="gender">女</label>   
@@ -108,7 +108,7 @@
                         <option value="岩手" <?php if($_POST['prefecture'] == "岩手") echo 'selected' ?>>岩手</option>
                         <option value="宮城" <?php if($_POST['prefecture'] == "宮城") echo 'selected' ?>>宮城</option>
                         <option value="秋田" <?php if($_POST['prefecture'] == "秋田") echo 'selected' ?>>秋田</option>
-                        <option value="山形" <?php if($_POST['prefecture'] == "山形") echo 'selected' ?>山形</option>
+                        <option value="山形" <?php if($_POST['prefecture'] == "山形") echo 'selected' ?>>山形</option><!--足りなかった（>）-->
                         <option value="福島" <?php if($_POST['prefecture'] == "福島") echo 'selected' ?>>福島</option>
                         <option value="茨城" <?php if($_POST['prefecture'] == "茨城") echo 'selected' ?>>茨城</option>
                         <option value="栃木" <?php if($_POST['prefecture'] == "栃木") echo 'selected' ?>>栃木</option>

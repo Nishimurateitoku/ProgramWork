@@ -78,7 +78,7 @@ input, select, {
     margin: 2px 2px 2px 2px;
 }
 p {
-    margin-top: 0;
+    margin-top: 16px;
     float: left;
     width: 180px;
 }
